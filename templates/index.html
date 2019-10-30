@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sitemap Generator</title>
+    <meta name="description" content="Free online sitemap generator. Quickly generate a sitemap for your website for Google Search Console.">
+    <meta name="keywords" content="sitemap, site map, generator, xml, google, search, SEO">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <div id="content">
+        <h1>Sitemap Generator</h1>
+		<div id="text">
+			<p>This web does not crawl your website.</p>
+			<p>This web is for those who already have a list of endpoints and want a tool to quickly create a Sitemap.</p>
+		</div>
+		<form onSubmit="event.preventDefault(); handleOnSubmit()">
+			<input type="text" placeholder="https://example.com/" id="url" autocomplete="off" ><br>
+			<textarea placeholder="about&#10;account&#10;product/1&#10;product/2" id="endPoints"></textarea><br>
+			<input type="submit" id="submit-button" value="Submit">
+		</form>
+		<textarea id="result" disabled=true></textarea>
+	</div>
+</body>
+<script src="static/scripts.js"></script>
+</html>
