@@ -1,4 +1,10 @@
 let XML_RESULT = null;
+const GITHUB_URL = "https://github.com/pralphv/sitemap_generator"
+
+function handleOnClick() {
+  let win = window.open(GITHUB_URL, '_blank');
+  win.focus();
+}
 
 function setXmlResult(value) {
     XML_RESULT = value;
