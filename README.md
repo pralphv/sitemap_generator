@@ -38,3 +38,4 @@ generates this
    </url>
 </urlset>
 ```
+<lastmod> is always utc time today.
