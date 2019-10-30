@@ -28,6 +28,7 @@ body {
 
 h1 {
 	margin: 0;
+	padding-top: 10px;
 }
 
 input {
@@ -87,6 +88,8 @@ textarea{
 
 #text {
     font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #github-icon{
