@@ -12,7 +12,7 @@ and this
 3
 4
 ```
-generates this
+generates this:
 ```
 <?xml version="1.0" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -38,4 +38,4 @@ generates this
    </url>
 </urlset>
 ```
-<lastmod> is always utc time today.
+lastmod is always utc time today.
