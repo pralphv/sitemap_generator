@@ -1,11 +1,22 @@
 from xml.dom import minidom
 from xml.etree.ElementTree import tostring
+import os
 
-from flask import Flask, render_template, request, jsonify, make_response
+from flask import Flask, render_template, request, jsonify, make_response, \
+    send_from_directory
 
 from xml_generator import generate_sitemap
 
 app = Flask(__name__)
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, 'static'),
+        'favicon.ico',
+        mimetype='image/vnd.microsoft.icon'
+    )
 
 
 @app.route('/')
