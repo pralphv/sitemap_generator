@@ -21,10 +21,14 @@ function getById(id) {
 
 async function handleOnSubmit(e) {
     const url = getById("url").value;
-    const endPoints = getById("endPoints").value;
+    let endPoints = getById("endPoints").value;
+    let languages = getById("languages").value;
     if (!url || !endPoints) {
         return;
     }
+    endPoints = endPoints.split("\n");
+    languages = languages? languages.split("\n"): null;
+
     const resp = await fetch("/api", {
         method: 'POST',
         headers: {
@@ -33,10 +37,12 @@ async function handleOnSubmit(e) {
         },
         body: JSON.stringify({
             url: url,
-            endPoints: endPoints
+            endPoints: endPoints,
+            languages: languages
         })
     });
     const obj = await resp.json();
+    console.log(obj)
     const xmlResult = obj.xml;
     setXmlResult(xmlResult);
     let quineHtml = prettify(xmlResult);
@@ -77,6 +83,46 @@ function prettyPlaceholder() {
    </url>
    <url>
       <loc>https://example.com/product/2</loc>
+      <lastmod>2019-10-27</lastmod>
+   </url>
+   <url>
+      <loc>https://example.com/cn</loc>
+      <lastmod>2019-10-27</lastmod>
+   </url>
+   <url>
+      <loc>https://example.com/cn/about</loc>
+      <lastmod>2019-10-27</lastmod>
+   </url>
+   <url>
+      <loc>https://example.com/cn/account</loc>
+      <lastmod>2019-10-27</lastmod>
+   </url>
+   <url>
+      <loc>https://example.com/cn/product/1</loc>
+      <lastmod>2019-10-27</lastmod>
+   </url>
+   <url>
+      <loc>https://example.com/cn/product/2</loc>
+      <lastmod>2019-10-27</lastmod>
+   </url>
+   <url>
+      <loc>https://example.com/jp</loc>
+      <lastmod>2019-10-27</lastmod>
+   </url>
+   <url>
+      <loc>https://example.com/jp/about</loc>
+      <lastmod>2019-10-27</lastmod>
+   </url>
+   <url>
+      <loc>https://example.com/jp/account</loc>
+      <lastmod>2019-10-27</lastmod>
+   </url>
+   <url>
+      <loc>https://example.com/jp/product/1</loc>
+      <lastmod>2019-10-27</lastmod>
+   </url>
+   <url>
+      <loc>https://example.com/jp/product/2</loc>
       <lastmod>2019-10-27</lastmod>
    </url>
 </urlset>

@@ -21,9 +21,11 @@
 		<div id="text">
 			<p>This web does not crawl your website.</p>
 			<p>This web is for those who already have a list of endpoints and want a tool to quickly create a Sitemap.</p>
+			<p>API also available. Check out the Github page for details.</p>
 		</div>
 		<form onSubmit="event.preventDefault(); handleOnSubmit()">
 			<input type="text" placeholder="https://example.com/" id="url" autocomplete="off" ><br>
+			<textarea placeholder="cn&#10;jp&#10;" id="languages"></textarea><br>
 			<textarea placeholder="about&#10;account&#10;product/1&#10;product/2" id="endPoints"></textarea><br>
 			<input type="submit" id="submit-button" value="Submit">
 		</form>

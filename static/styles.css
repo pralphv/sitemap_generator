@@ -54,6 +54,10 @@ textarea {
 	background: #2a2c44;
 }
 
+#languages {
+	height: 50px;
+}
+
 #endPoints {
 	height: 150px;
 }

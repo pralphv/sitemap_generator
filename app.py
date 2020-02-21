@@ -29,17 +29,19 @@ def api():
     try:
         parameters = request.json
         url = parameters['url']
-        end_points_list = parameters['endPoints'].split('\n')
-        root = generate_sitemap(url, end_points_list)
+        end_points_list = parameters['endPoints']
+        languages = parameters.get('languages', None)
+        root = generate_sitemap(url, end_points_list, languages)
         xml = tostring(root, encoding='unicode')
         xml = minidom.parseString(xml).toprettyxml(
             indent="   "
         )
         res = make_response(jsonify({'xml': xml}), 200)
         return res
-    except Exception:
+    except Exception as e:
+        print(e)
         return make_response('Bad Request', 400)
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
