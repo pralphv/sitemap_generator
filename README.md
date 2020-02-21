@@ -39,3 +39,40 @@ generates this:
 </urlset>
 ```
 lastmod is always today, utc time.
+## Api 
+POST Request
+```
+{
+    "body":{
+        "key": value
+    },
+}
+```
+### api/
+POST Request
+```
+{
+    "url": string,
+    "endPoints": Array<string>,
+    "languages": Array<string> | null,
+}
+```
+Response
+```
+{
+  "xml": "..."
+}
+```
+Example Python request
+```python
+import requests
+
+resp = requests.post(
+    'https://sitemap-generator-heroku.herokuapp.com/api',
+    json={
+        "url": "http://127.0.0.1:5000/",
+        "endPoints": [1, 2, 3],
+    }
+)
+print(resp.json()['xml'])
+```
