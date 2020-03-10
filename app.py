@@ -24,18 +24,30 @@ def landing_page():
     return render_template('index.html')
 
 
+def adapter(value):
+    if isinstance(value, str):
+        value = value.split('\n')
+    return value
+
+
 @app.route('/api', methods=['POST'])
 def api():
     try:
         parameters = request.json
         url = parameters['url']
         end_points_list = parameters['endPoints']
-        languages = parameters.get('languages', None)
+        prettify = parameters.get('prettify', False)
+        languages = parameters.get('languages', [])
+
+        end_points_list = adapter(end_points_list)
+        languages = adapter(languages)
+
         root = generate_sitemap(url, end_points_list, languages)
         xml = tostring(root, encoding='unicode')
-        xml = minidom.parseString(xml).toprettyxml(
-            indent="   "
-        )
+        if prettify:
+            xml = minidom.parseString(xml).toprettyxml(
+                indent="   "
+            )
         res = make_response(jsonify({'xml': xml}), 200)
         return res
     except Exception as e:
