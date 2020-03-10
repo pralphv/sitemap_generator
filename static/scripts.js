@@ -38,7 +38,8 @@ async function handleOnSubmit(e) {
         body: JSON.stringify({
             url: url,
             endPoints: endPoints,
-            languages: languages
+            languages: languages,
+            prettify: true
         })
     });
     const obj = await resp.json();
